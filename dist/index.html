@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Teams</title>
+</head>
+<body>
+        <div id="main">
+        <input id="crewSearch" type="text" placeholder="Enter Team Nam :- (heat,warriors)">
+        <button id="searchBtn">GET ROSTER</button>
+        </div>
+    <div id="roster"></div>
+        <script id="roster-template" type="text/x-handlebars-template">
+        {{#if this.length}}
+        {{#each this}}
+        <div class="player">
+            <p class="name"><h2> {{firstName}} {{lastName}}</h2></p>
+            <p class="number">{{jersey}}</p>
+            <div class="player-image">
+            <img src="https://nba-players.herokuapp.com/players/{{lastName}}/{{firstName}}" onerror="setDefaultImg(this)">
+            </div>
+                <p class="pos">{{pos}}</p>
+        </div>
+        {{/each}}
+        {{/if}}
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
